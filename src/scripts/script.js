@@ -1,5 +1,5 @@
 const form = document.querySelector("form");
-const button = document.querySelectorAll("button");
+const button = document.querySelectorAll("input[type='button']");
 const screen = document.querySelector("#screen");
 
 form.addEventListener("click", (e) => {
@@ -7,19 +7,17 @@ form.addEventListener("click", (e) => {
 });
 
 button.forEach((e) => {
-  const arr = [];
+
   e.addEventListener("click", (evt) => {
-    // if (button[0]) {
-    //   arr.push(button[0].className);
+    // valueArr.push(evt.value)
+    // let num = evt.currentTarget.value
+    
+    // if(num !== "+" && num !== "DEL" && num !== "-" && num !== "x" && num !== "RESET" && num !== "="&& num !== "/"){
+    //  let sum = Number(num)
+    //  screen.innerHTML += sum
+    //  console.log(typeof(sum))
     // }
-    // console.log(arr);
-    // screen.innerHTML = arr;
-    // if (operator === "") { // Read first number if no operator set yet
-    //     firstNum += e.target.innerText;
-    //     console.log(firstNum)
-    // } else { // Read second number
-    //     secondNum += e.target.innerText;
-    //     console.log(secondNum)
-    // }
+ 
+
   });
 });

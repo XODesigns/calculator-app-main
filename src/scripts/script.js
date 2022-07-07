@@ -9,15 +9,14 @@ form.addEventListener("click", (e) => {
 button.forEach((e) => {
 
   e.addEventListener("click", (evt) => {
-    // valueArr.push(evt.value)
-    // let num = evt.currentTarget.value
-    
-    // if(num !== "+" && num !== "DEL" && num !== "-" && num !== "x" && num !== "RESET" && num !== "="&& num !== "/"){
-    //  let sum = Number(num)
-    //  screen.innerHTML += sum
-    //  console.log(typeof(sum))
-    // }
+
+    const value = evt.currentTarget.value
  
+    if(value === "RESET"){
+      screen.innerHTML = ""
+    } else if(value === "DEL"){
+      screen.innerHTML = screen.innerHTML.slice(0, -1)
+    } 
 
   });
 });

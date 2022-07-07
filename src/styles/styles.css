@@ -6,7 +6,7 @@
 
 .theme-one{
     display: grid;
-    grid-template-columns: 2fr repeat(4, 1fr) 2fr;
+    grid-template-columns: 30% repeat(4, 1fr) 30%;
     grid-column:1/7;
     background-color:hsl(222, 26%, 31%) ;
     width: 100%;
@@ -30,6 +30,7 @@ grid-row: 2/11;
 
 .header{
     display: grid;
+    grid-template-columns: 0.5fr repeat(3, 1fr) 1.2fr;
     grid-column: 2/6;
 }
 .header h1{
@@ -39,11 +40,15 @@ grid-row: 2/11;
     font-size:1.5rem;
     color:hsl(0, 0%, 100%);
 }
-.switch{
-    grid-column:5/6;
+.header h3{
+    grid-column: 5/5;
     grid-row:3/3;
-    text-align: right;
+    font-size: 0.7rem;
+    color:hsl(0, 0%, 100%);
+    letter-spacing:1px;
+    line-height:1.5rem;
 }
+
 .header ul{
     grid-column: 5/6;
     grid-row:2/2;
@@ -55,29 +60,94 @@ grid-row: 2/11;
     text-align: right;
     font-size: 0.7rem;
     color:hsl(0, 0%, 100%);
-    letter-spacing:10px;
+    letter-spacing:13px;
 }
-.header label{
-    font-size: 0.7rem;
-    color:hsl(0, 0%, 100%);
-    letter-spacing:1px;
-}
+
 
 form{
     display: grid;
 }
-input[type=text]{
+.screen{
     grid-column:1/6;
     height: 5rem;
     border-radius: 8px;
     border:none;
     background-color: hsl(224, 36%, 15%);
     margin-bottom: 1rem;
+    font-size:3rem;
+    text-align:right;
+    padding:5% 5% 0 5%;
+    color:hsl(0, 0%, 100%);
 }
-input[type=radio]{
-    background-color:hsl(224, 36%, 15%) ;
-    opacity: 0;
+/* input[type=text]:focus{
+    outline: none;
+} */
+
+
+/* */
+
+
+.switch{
+    grid-column:5/6;
+    grid-row:3/3;
+    position: relative;
+    display: block;
+    width: 70px;
+    height: 20px;
+    left:45%;
 }
+
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right:0; bottom:0;
+    background-color:hsl(224, 36%, 15%);
+    transition: .5s;
+
+    /* box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); */
+}
+
+.slider:before{
+    position: absolute;
+    content: "";
+    /* bottom: 1px; */
+    top: 2.5px;
+    right: 4px;
+    left: 3.5px;
+    background-color: hsl(6, 63%, 50%);
+    transition: .5s;
+}
+
+.switch input{
+    display: none;
+}
+
+#toggle:checked + .slider{
+    background-color: hsl(0, 0%, 100%);
+}
+
+#toggle:checked + .slider:before{
+    transform: translateX(35px) rotateZ(180deg);
+    background-color: hsl(0, 0%, 100%);
+}
+
+#toggle:checked{
+    background-color: red;
+}
+
+.slider.round{
+    border-radius: 35px;
+}
+
+.slider.round:before{
+    width: 15px;
+    height:15px;
+    border-radius: 50px;
+}
+
+
+
+
 
 .buttons{
     display: grid;
@@ -100,6 +170,7 @@ button{
     box-shadow: 0px 4px 0px 0.2px hsl(28, 16%, 65%);
     -webkit-box-shadow: 0px 4px 0px 0.2px hsl(28, 16%, 65%);
     -moz-box-shadow: 0px 4px 0px 0.2px hsl(28, 16%, 65%);
+    cursor: pointer;
 }
 button.reset{
 grid-column: 1/3;

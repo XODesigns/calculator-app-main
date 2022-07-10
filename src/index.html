@@ -27,10 +27,12 @@
         <div class="calc">
           <div class="header">
             <h1>calc</h1>
-            <h3 class="theme">THEME</h3>
-            <div class="switch">
-              <input type="checkbox" id="toggle" />
-              <span class="slider round"></span>
+            <div class="theme">
+              <h3>THEME</h3>
+              <div class="switch">
+                <input type="checkbox" id="toggle" />
+                <span class="slider round"></span>
+              </div>
             </div>
 
             <ul>
@@ -39,63 +41,36 @@
               <li>3</li>
             </ul>
           </div>
+          <div class="calculator">
+            <form action="">
+              <div class="screen" id="screen">
+                <div data-previous-operand>0</div>
+                <div data-current-operand>0</div>
+              </div>
 
-          <form action="">
-            <!-- <input type="text" id="screen" /> -->
-            <div class="screen" id="screen">0</div>
+              <div class="buttons">
+                <input type="button" data-number value="7" />
+                <input type="button" data-number value="8" />
+                <input type="button" data-number value="9" />
+                <input type="button" data-delete class="delete" value="DEL" />
+                <input type="button" data-number value="4" />
+                <input type="button" data-number value="5" />
+                <input type="button" data-number value="6" />
+                <input type="button" data-evaluation value="+" />
+                <input type="button" data-number value="1" />
+                <input type="button" data-number value="2" />
+                <input type="button" data-number value="3" />
+                <input type="button" data-evaluation value="-" />
+                <input type="button" data-number value="." />
+                <input type="button" data-number value="0" />
+                <input type="button" data-evaluation value="/" />
+                <input type="button" data-evaluation value="x" />
 
-            <div class="buttons">
-              <input type="button" class="7" value="7" />
-              <input type="button" class=8" value="8" />
-              <input type="button" class="9" value="9" />
-              <input
-                type="button"
-                class="key--operator"
-                data-action="delete"
-                value="DEL"
-              />
-              <input type="button" class="4" value="4" />
-              <input type="button" class="5" value="5" />
-              <input type="button" class="6" value="6" />
-              <input
-                type="button"
-                class="key--operator"
-                data-action="addition"
-                value="+"
-              />
-              <input type="button" class="1" value="1" />
-              <input type="button" class="2" value="2" />
-              <input type="button" class="3" value="3" />
-              <input
-                type="button"
-                class="key--operator"
-                data-action="subtract"
-                value="-"
-              />
-              <input type="button" data-action="decimal" value="." />
-              <input type="button" class="0" value="0" />
-              <input
-                type="button"
-                class="key--operator"
-                data-action="division"
-                value="/"
-              />
-              <input
-                type="button"
-                class="key--operator"
-                data-action="multiply"
-                value="x"
-              />
-
-              <input type="button" class="reset" value="RESET" />
-              <input
-                type="button"
-                class="equals"
-                data-action="calculate"
-                value="="
-              />
-            </div>
-          </form>
+                <input type="button" class="reset" data-reset value="RESET" />
+                <input type="button" class="equals" data-equals" value="=" />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </main>

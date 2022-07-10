@@ -1,68 +1,167 @@
-// https://www.freecodecamp.org/news/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98/
-
 const form = document.querySelector("form");
-const button = document.querySelectorAll("input[type='button']");
+const numbers = document.querySelectorAll("[data-number]");
+const evalutionButtons = document.querySelectorAll("[data-evaluation]");
+const deletes = document.querySelector("[data-delete]");
+const reset = document.querySelector("[data-reset]");
+const equals = document.querySelector("[data-equals]");
 const screen = document.querySelector("#screen");
-const calculator = document.querySelector(".calc");
+const previousOperandOutput = document.querySelector("[data-previous-operand]");
+const currentOperandOutput = document.querySelector("[data-current-operand]");
 
 form.addEventListener("click", (e) => {
   e.preventDefault();
 });
 
-button.forEach((e) => {
-  e.addEventListener("click", (evt) => {
-    const value = evt.currentTarget.value;
+// button.forEach((e) => {
+//   e.addEventListener("click", (evt) => {
+//     const value = evt.currentTarget.value;
 
-    if (value === "RESET") {
-      screen.innerHTML = "";
-    } else if (value === "DEL") {
-      screen.innerHTML = screen.innerHTML.slice(0, -1);
-    }
-    // Next, we can use the data-action attribute to determine the type of key that is clicked.
-    const key = evt.target;
-    const action = key.dataset.action;
-    const keyContent = key.value;
-    const displayedNum = screen.textContent;
-    // If the key does not have a data-action attribute, it must be a number key.
-    if (!action) {
-      console.log("number key!");
-    }
-    // If the key has a data-action that is either add, subtract, multiply or divide, we know the key is an operator.
-    if (
-      action === "add" ||
-      action === "subtract" ||
-      action === "multiply" ||
-      action === "divide"
-    ) {
-      // This function is make sure the user sees that they've clicked the right operator button.
-      // key.classList.add(some clicked css class i still need to add)
+//     if (value === "RESET") {
+//       screen.innerHTML = "";
+//     } else if (value === "DEL") {
+//       screen.innerHTML = screen.innerHTML.slice(0, -1);
+//     }
+   
+   
+// });
+// })
 
-      //We need to tell if the previous key is an operator key or not.
-      form.dataset.previousKeyType = "operator";
+// Declaring a constructor class, this will be doing the calculations
+
+class Calculation {
+  constructor(previousOutput, currentOutput) {
+    this.previousOutput = previousOutput;
+    this.currentOutput = currentOutput;
+    this.clear();
+  }
+
+  clear() {
+    this.currentOutput = "";
+    this.previousOutput = "";
+    this.operation = undefined;
+  }
+
+  delete() {
+    this.currentOutput = this.currentOutput.toString().slice(0, -1);
+  }
+
+  addDigits(number) {
+    if (number === "." && this.currentOutput.includes(".")) return;
+    this.currentOutput = this.currentOutput.toString() + number.toString();
+  }
+
+  chooseOperation(operation) {
+    if (this.currentOutput === "") return;
+    if (this.previousOutput !== "") {
+      this.compute();
     }
-    // If the key’s data-action is decimal, we know the user clicked on the decimal key.
-    if (action === "decimal") {
-      screen.textContent = displayedNum + ".";
-    }
-    // If the key’s data-action is calculate, we know the user clicked on the equals key.
-    if (action === "calculate") {
-      console.log("equal key!");
+    this.operation = operation;
+    this.previousOutput = this.currentOutput;
+    this.currentOutput = "";
+  }
+
+  compute() {
+    let computation;
+    const prev = parseFloat(this.previousOutput);
+    const current = parseFloat(this.currentOutput);
+    if (isNaN(prev) || isNaN(current)) return;
+    switch (this.operation) {
+      case "+":
+        computation = prev + current;
+        break;
+      case "-":
+        computation = prev - current;
+        break;
+      case "*":
+        computation = prev * current;
+        break;
+      case "&divide":
+        computation = prev / current;
+        break;
+      default:
+        return;
     }
 
-    // If the calculator shows 0, we want to replace the calculator’s display with the clicked key. We can do so by replacing the display’s textContent property.
-    // If the calculator shows a non-zero number, we want to append the clicked key to the displayed number. To append a number, we concatenate a string.
-    // If the previousKeyType is an operator, we want to replace the displayed number with clicked number.
-    const previousKeyType = form.dataset.previousKeyType;
+    this.currentOutput = computation;
+    this.operation = undefined;
+    this.previousOutput = "";
+  }
 
-    if (!action) {
-      if (displayedNum === "0" || previousKeyType === "operator") {
-        screen.textContent = keyContent;
-      } else {
-        screen.textContent = displayedNum + keyContent;
-      }
-      // console.log(evt.target.value);
+  // This function will add a comma when digits become larger
+
+  displayedNumber(number) {
+    const stringNumber = number.toString();
+    const integerDigits = parseFloat(stringNumber.split(".")[0]);
+    const decimalDigits = stringNumber.split(".")[1];
+
+    let integerDisplay;
+    if (isNaN(integerDigits)) {
+      integerDisplay = "";
+    } else {
+      integerDisplay = integerDigits.toLocaleString("en", {
+        maximumFractionDigits: 0,
+      });
     }
+    if (decimalDigits != null) {
+      return `${integerDisplay}.${decimalDigits}`;
+    } else {
+      return integerDisplay;
+    }
+  }
+
+  updateScreen() {
+    this.currentOperandOutput.innerText = this.displayedNumber(
+      this.currentOutput
+    );
+    if (this.operation != null) {
+      this.previousOperandOutput.innerText = `${this.displayedNumber(
+        this.previousOutput
+      )} ${this.operation}`;
+    } else {
+      this.previousOperandOutput.innerText = "";
+    }
+  }
+}
+
+
+// call the about class and add both the entered previous value and current to the given
+// given arguments
+
+const calculation = new Calculation(
+  previousOperandOutput,
+  currentOperandOutput
+);
+
+// When each given button is clicked - the connected functions, declared in the
+// constructor class will be executed.
+
+numbers.forEach((button) => {
+  button.addEventListener("click", () => {
+    calculation.addDigits(button.value);
+    calculation.updateScreen();
   });
 });
 
-function calculate() {}
+evalutionButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    calculation.chooseOperation(button.innerText);
+    calculation.updateScreen();
+  });
+});
+
+equals.addEventListener("click", () => {
+  calculation.compute();
+  calculation.updateScreen();
+});
+
+reset.addEventListener("click", () => {
+  calculation.clear();
+  calculation.updateScreen();
+});
+
+deletes.addEventListener("click", () => {
+  calculation.delete();
+  calculation.updateScreen();
+});
+
+

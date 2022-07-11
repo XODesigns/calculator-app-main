@@ -7,38 +7,33 @@ const equals = document.querySelector("[data-equals]");
 const screen = document.querySelector("#screen");
 const previousOperandOutput = document.querySelector("[data-previous-operand]");
 const currentOperandOutput = document.querySelector("[data-current-operand]");
+const toggles = document.querySelector("[data-slider]");
 
-form.addEventListener("click", (e) => {
-  e.preventDefault();
+form.addEventListener("click", (evt) => {
+  evt.preventDefault();
 });
 
-// button.forEach((e) => {
-//   e.addEventListener("click", (evt) => {
-//     const value = evt.currentTarget.value;
-
-//     if (value === "RESET") {
-//       screen.innerHTML = "";
-//     } else if (value === "DEL") {
-//       screen.innerHTML = screen.innerHTML.slice(0, -1);
-//     }
-   
-   
+// toggles.addEventListener("click", (evt) => {
+//   toggles.classList.add("slid");
+//   console.log("yes");
 // });
-// })
+// if (toggles.checked) {
+//   console.log("clicked");
+// }
 
 // Declaring a constructor class, this will be doing the calculations
 
 class Calculation {
-  constructor(previousOutput, currentOutput) {
-    this.previousOutput = previousOutput;
-    this.currentOutput = currentOutput;
+  constructor(previousOperandOutput, currentOperandOutput) {
+    this.previousOperandOutput = previousOperandOutput;
+    this.currentOperandOutput = currentOperandOutput;
     this.clear();
   }
 
   clear() {
     this.currentOutput = "";
     this.previousOutput = "";
-    this.operation = undefined;
+    this.evaluation = undefined;
   }
 
   delete() {
@@ -50,12 +45,12 @@ class Calculation {
     this.currentOutput = this.currentOutput.toString() + number.toString();
   }
 
-  chooseOperation(operation) {
+  chooseOperation(evaluation) {
     if (this.currentOutput === "") return;
     if (this.previousOutput !== "") {
       this.compute();
     }
-    this.operation = operation;
+    this.evaluation = evaluation;
     this.previousOutput = this.currentOutput;
     this.currentOutput = "";
   }
@@ -65,17 +60,17 @@ class Calculation {
     const prev = parseFloat(this.previousOutput);
     const current = parseFloat(this.currentOutput);
     if (isNaN(prev) || isNaN(current)) return;
-    switch (this.operation) {
+    switch (this.evaluation) {
       case "+":
         computation = prev + current;
         break;
       case "-":
         computation = prev - current;
         break;
-      case "*":
+      case "x":
         computation = prev * current;
         break;
-      case "&divide":
+      case "/":
         computation = prev / current;
         break;
       default:
@@ -83,7 +78,7 @@ class Calculation {
     }
 
     this.currentOutput = computation;
-    this.operation = undefined;
+    this.evaluation = undefined;
     this.previousOutput = "";
   }
 
@@ -113,16 +108,15 @@ class Calculation {
     this.currentOperandOutput.innerText = this.displayedNumber(
       this.currentOutput
     );
-    if (this.operation != null) {
+    if (this.evaluation != null) {
       this.previousOperandOutput.innerText = `${this.displayedNumber(
         this.previousOutput
-      )} ${this.operation}`;
+      )} ${this.evaluation}`;
     } else {
       this.previousOperandOutput.innerText = "";
     }
   }
 }
-
 
 // call the about class and add both the entered previous value and current to the given
 // given arguments
@@ -144,7 +138,7 @@ numbers.forEach((button) => {
 
 evalutionButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    calculation.chooseOperation(button.innerText);
+    calculation.chooseOperation(button.value);
     calculation.updateScreen();
   });
 });
@@ -163,5 +157,3 @@ deletes.addEventListener("click", () => {
   calculation.delete();
   calculation.updateScreen();
 });
-
-

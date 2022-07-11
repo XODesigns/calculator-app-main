@@ -29,9 +29,12 @@
             <h1>calc</h1>
             <div class="theme">
               <h3>THEME</h3>
-              <div class="switch">
+              <!-- <div class="switch">
                 <input type="checkbox" id="toggle" />
-                <span class="slider round"></span>
+                <span data-slider class="slider round"></span>
+              </div> -->
+              <div class="switch" id="toggle">
+                <div class="circle"></div>
               </div>
             </div>
 
@@ -44,8 +47,8 @@
           <div class="calculator">
             <form action="">
               <div class="screen" id="screen">
-                <div data-previous-operand>0</div>
-                <div data-current-operand>0</div>
+                <div class="previous-operand" data-previous-operand></div>
+                <div class="current-operand" data-current-operand>0</div>
               </div>
 
               <div class="buttons">
@@ -67,7 +70,7 @@
                 <input type="button" data-evaluation value="x" />
 
                 <input type="button" class="reset" data-reset value="RESET" />
-                <input type="button" class="equals" data-equals" value="=" />
+                <input type="button" class="equals" data-equals value="=" />
               </div>
             </form>
           </div>

@@ -7,19 +7,30 @@ const equals = document.querySelector("[data-equals]");
 const screen = document.querySelector("#screen");
 const previousOperandOutput = document.querySelector("[data-previous-operand]");
 const currentOperandOutput = document.querySelector("[data-current-operand]");
-const toggles = document.querySelector("[data-slider]");
+const toggles = document.querySelector("[data-circle]");
+const theme = document.querySelector("#themes");
 
 form.addEventListener("click", (evt) => {
   evt.preventDefault();
 });
 
-// toggles.addEventListener("click", (evt) => {
-//   toggles.classList.add("slid");
-//   console.log("yes");
-// });
-// if (toggles.checked) {
-//   console.log("clicked");
-// }
+theme.classList.add("theme-one")
+toggles.addEventListener("click", (evt)=>{
+if(evt.target.value === "1"){
+  theme.classList.remove("theme-one")
+  theme.classList.add("theme-two")
+  theme.classList.remove("theme-three")
+} else if(evt.target.value === "2"){
+  theme.classList.remove("theme-one")
+theme.classList.remove("theme-two")
+theme.classList.add("theme-three")
+} else {
+  theme.classList.add("theme-one")
+  theme.classList.remove("theme-two")
+theme.classList.remove("theme-three")
+}
+})
+
 
 // Declaring a constructor class, this will be doing the calculations
 

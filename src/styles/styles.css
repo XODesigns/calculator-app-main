@@ -1,178 +1,205 @@
-*{
-    margin:0;
-    font-family: 'League Spartan', sans-serif;
+* {
+  margin: 0;
+  font-family: "League Spartan", sans-serif;
+}
+
+.theme-one {
+  display: grid;
+  grid-template-columns: 30% repeat(4, 1fr) 30%;
+  grid-column: 1/7;
+  background-color: hsl(222, 26%, 31%);
+  width: 100%;
+  height: 100vh;
+}
+.theme-two {
+  display: grid;
+  grid-template-columns: 30% repeat(4, 1fr) 30%;
+  grid-column: 1/7;
+  background-color: hsl(0, 0%, 90%);
+  width: 100%;
+  height: 100vh;
+}
+.theme-three {
+  display: grid;
+  grid-template-columns: 30% repeat(4, 1fr) 30%;
+  grid-column: 1/7;
+  background-color: hsl(268, 75%, 9%);
+  width: 100%;
+  height: 100vh;
+}
+
+.calc {
+  grid-column: 2/6;
+  grid-row: 2/11;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 0.5fr repeat(3, 1fr) 1.2fr;
+  grid-column: 2/6;
+  padding-bottom: 4%;
+}
+.header h1 {
+  grid-column: 1/2;
+  grid-row: 3/3;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.header ul {
+  grid-column: 5/6;
+  grid-row: 2/2;
+  text-align: right;
+  width: 100%;
+  padding: 0;
+}
+.header li {
+  list-style-type: none;
+  display: inline;
+  font-size: 0.7rem;
+  padding: 0 8px;
 }
 
 
-.theme-one{
-    display: grid;
-    grid-template-columns: 30% repeat(4, 1fr) 30%;
-    grid-column:1/7;
-    background-color:hsl(222, 26%, 31%) ;
-    width: 100%;
-    height:100vh;
+form {
+  display: grid;
 }
-.theme-two{
-    background-color:hsl(0, 0%, 90%) ;
-    width: 100%;
-    height:100vh;
-}
-.theme-three{
-    background-color:hsl(268, 75%, 9%) ;
-    width: 100%;
-    height:100vh;
-}
-
-.calc{
-grid-column: 2/6;
-grid-row: 2/11;
+.screen {
+  grid-column: 1/6;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 5rem;
+  border-radius: 8px;
+  border: none;
+  background-color: hsl(224, 36%, 15%);
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  padding: 10px 5%;
+  color: hsl(0, 0%, 100%);
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
-.header{
-    display: grid;
-    grid-template-columns: 0.5fr repeat(3, 1fr) 1.2fr;
-    grid-column: 2/6;
-}
-.header h1{
-    grid-column:1/2;
-    grid-row:3/3;
-    text-align: left;
-    font-size:1.5rem;
-    color:hsl(0, 0%, 100%);
-}
-
-
-.header ul{
-    grid-column: 5/6;
-    grid-row:2/2;
-    text-align: right;
-    width: 70px;
-    padding:0;
-}
-.header li{
-    list-style-type: none;
-    display: inline;
-    text-align: right;
-    font-size: 0.7rem;
-    color:hsl(0, 0%, 100%);
-    padding: 0 8px;
-}
-.header li:last-child{
-    padding-right:0;
-}
-
-form{
-    display: grid;
-}
-.screen{
-    grid-column:1/6;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    flex-direction: column;
-    height: 5rem;
-    border-radius: 8px;
-    border:none;
-    background-color: hsl(224, 36%, 15%);
-    margin-bottom: 1rem;
-    font-size:3rem;
-    padding:10px 5%;
-    color:hsl(0, 0%, 100%);
-    word-wrap: break-word;
-    word-break: break-all;
-}
-
-
-.screen .previous-operand{
-    color:rgba(255, 255, 255, .75);
-    font-size: 1.5rem;
+.screen .previous-operand {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
 }
 
 .screen .current-operand {
-    color: #fff;
-    font-size: 2.5rem;
+  color: #fff;
+  font-size: 2.5rem;
 }
 
-
-.theme{
- grid-column: 5/6;
- grid-row: 3/3;
- display:flex;
- justify-content: right;
+.theme {
+  grid-column: 4/6;
+  grid-row: 3/3;
+  display: flex;
+  justify-content:end;
+  margin-right:6%;
 }
 
 .theme h3 {
-    font-size: 0.7rem;
-    color: hsl(0, 0%, 100%);
-    letter-spacing: 1px;
-    line-height: 1.5rem;
-    padding-right:5px;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  line-height: 1.5rem;
+  padding-right: 5px;
+}
+
+.switch {
+  width: 60px;
+  height: 20px;
+  background-color: hsl(224, 36%, 15%);
+  border-radius: 35px;
+  display: grid;
+  cursor: pointer;
 }
 
 
-.switch{
-    width:70px;
-    height: 20px;
-    background-color:hsl(224, 36%, 15%);
+input[type="range"]{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 60px;
+    background: hsl(224, 36%, 15%);
     border-radius: 35px;
-    display:grid;
-}
-.circle{
-   background-color: hsl(6, 63%, 50%);
-   border-radius: 50px;
-   width: 15px;
-   height:15px;
-   margin:2.5px;
-   transform: translateX(5px);
+    padding:0 5px;
 }
 
-.transform{
-    transform: translateX(35px);
+input[type="range"]::-webkit-slider-thumb{
+    background: hsl(6, 63%, 50%);
+        border: 1px solid hsl(6, 63%, 50%);
+        border-radius: 35px;
+        width:12px;
+        height: 12px;
+}
+input[type="range"]::-moz-range-thumb {
+    background: hsl(6, 63%, 50%);
+    border: 1px solid hsl(6, 63%, 50%);
+    border-radius: 35px;
+    width: 12px;
+    height: 12px;
 }
 
-.buttons{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap:20px;
-    padding: 20px;
-    grid-column:1/6;
-    grid-row:4/10;
-    border-radius: 8px;
-    border:none;
-    background-color: hsl(224, 36%, 15%);  
+input[type="range"]:focus {
+    outline: none;
+    
+}
+input[type="range"]:focus::-webkit-slider-thumb{
+    background:hsl(6, 63%, 50%) ;
+    border: 1px solid hsl(6, 63%, 50%);
+    border-radius: 35px;
+}
+input[type="range"]:focus::-moz-range-thumb{
+    background: hsl(6, 63%, 50%);
+    border: 1px solid hsl(6, 63%, 50%);
+    border-radius: 35px;
 }
 
-input[type=button]{
-    height:3rem;
-    font-size:1.5rem;
-    border:none;
-    border-radius: 5px;
-    background-color: hsl(30, 25%, 89%);
-    box-shadow: 0px 4px 0px 0.2px hsl(28, 16%, 65%);
-    -webkit-box-shadow: 0px 4px 0px 0.2px hsl(28, 16%, 65%);
-    -moz-box-shadow: 0px 4px 0px 0.2px hsl(28, 16%, 65%);
-    cursor: pointer;
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  grid-column: 1/6;
+  grid-row: 4/10;
+  border-radius: 8px;
+  border: none;
+  background-color: hsl(224, 36%, 15%);
 }
-.reset{
-grid-column: span 2;
-background-color: hsl(225, 21%, 49%) !important;
-color:hsl(30, 25%, 89%) !important;
-box-shadow: 0px 4px 0px 0.2px hsl(224, 28%, 35%) !important;
-    -webkit-box-shadow: 0px 4px 0px 0.2px hsl(224, 28%, 35%) !important;
-    -moz-box-shadow: 0px 4px 0px 0.2px hsl(224, 28%, 35%) !important;
+
+input[type="button"] {
+  height: 3rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: hsl(30, 25%, 89%);
+  box-shadow: 0px 4px 0px 0.2px hsl(28, 16%, 65%);
+  -webkit-box-shadow: 0px 4px 0px 0.2px hsl(28, 16%, 65%);
+  -moz-box-shadow: 0px 4px 0px 0.2px hsl(28, 16%, 65%);
+  cursor: pointer;
 }
-.equals{
-grid-column: span 2;
-background-color: hsl(6, 63%, 50%) !important;
-color:hsl(30, 25%, 89%) !important;
-box-shadow: 0px 4px 0px 0.2px hsl(6, 70%, 34%) !important;
-    -webkit-box-shadow: 0px 4px 0px 0.2px hsl(6, 70%, 34%) !important;
-    -moz-box-shadow: 0px 4px 0px 0.2px hsl(6, 70%, 34%) !important;
+.reset {
+  grid-column: span 2;
+  background-color: hsl(225, 21%, 49%) !important;
+  color: hsl(30, 25%, 89%) !important;
+  box-shadow: 0px 4px 0px 0.2px hsl(224, 28%, 35%) !important;
+  -webkit-box-shadow: 0px 4px 0px 0.2px hsl(224, 28%, 35%) !important;
+  -moz-box-shadow: 0px 4px 0px 0.2px hsl(224, 28%, 35%) !important;
 }
-.delete{
-    background-color: hsl(225, 21%, 49%) !important;
-    color:hsl(30, 25%, 89%) !important;
-    box-shadow: 0px 4px 0px 0.2px hsl(224, 28%, 35%) !important;
-    -webkit-box-shadow: 0px 4px 0px 0.2px hsl(224, 28%, 35%) !important;
-    -moz-box-shadow: 0px 4px 0px 0.2px hsl(224, 28%, 35%) !important;
+.equals {
+  grid-column: span 2;
+  background-color: hsl(6, 63%, 50%) !important;
+  color: hsl(30, 25%, 89%) !important;
+  box-shadow: 0px 4px 0px 0.2px hsl(6, 70%, 34%) !important;
+  -webkit-box-shadow: 0px 4px 0px 0.2px hsl(6, 70%, 34%) !important;
+  -moz-box-shadow: 0px 4px 0px 0.2px hsl(6, 70%, 34%) !important;
 }
+.delete {
+  background-color: hsl(225, 21%, 49%) !important;
+  color: hsl(30, 25%, 89%) !important;
+  box-shadow: 0px 4px 0px 0.2px hsl(224, 28%, 35%) !important;
+  -webkit-box-shadow: 0px 4px 0px 0.2px hsl(224, 28%, 35%) !important;
+  -moz-box-shadow: 0px 4px 0px 0.2px hsl(224, 28%, 35%) !important;
+}
+

@@ -14,23 +14,23 @@ form.addEventListener("click", (evt) => {
   evt.preventDefault();
 });
 
-theme.classList.add("theme-one")
-toggles.addEventListener("click", (evt)=>{
-if(evt.target.value === "1"){
-  theme.classList.remove("theme-one")
-  theme.classList.add("theme-two")
-  theme.classList.remove("theme-three")
-} else if(evt.target.value === "2"){
-  theme.classList.remove("theme-one")
-theme.classList.remove("theme-two")
-theme.classList.add("theme-three")
-} else {
-  theme.classList.add("theme-one")
-  theme.classList.remove("theme-two")
-theme.classList.remove("theme-three")
-}
-})
-
+//Changing of themes every toggle click
+theme.classList.add("theme-one");
+toggles.addEventListener("click", (evt) => {
+  if (evt.target.value === "1") {
+    theme.classList.remove("theme-one");
+    theme.classList.add("theme-two");
+    theme.classList.remove("theme-three");
+  } else if (evt.target.value === "2") {
+    theme.classList.remove("theme-one");
+    theme.classList.remove("theme-two");
+    theme.classList.add("theme-three");
+  } else {
+    theme.classList.add("theme-one");
+    theme.classList.remove("theme-two");
+    theme.classList.remove("theme-three");
+  }
+});
 
 // Declaring a constructor class, this will be doing the calculations
 

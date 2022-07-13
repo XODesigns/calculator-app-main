@@ -77,7 +77,7 @@
 
 .calculator-build {
   display: grid;
-  grid-template-columns: 30% repeat(4, 1fr) 30%;
+  grid-template-columns: 6fr repeat(4, 1fr) 6fr;
   grid-template-rows: 15% 1fr 1fr 2fr repeat(6, 1.5fr) 15%;
   grid-column: 1/7;
   background-color: var(--primary-background);
@@ -297,4 +297,26 @@ input[type="button"]:hover {
 }
 .delete:hover {
   background-color: var(--hover-delete-reset) !important;
+}
+
+
+@media only screen and (max-width:1200px){
+  .calculator-build {
+      grid-template-columns: 4fr repeat(4, 1fr) 4fr;
+    }
+}
+@media only screen and (max-width:900px) {
+  .calculator-build {
+    grid-template-columns: 2fr repeat(4, 1fr) 2fr;
+  }
+}
+@media only screen and (max-width:600px) {
+  .calculator-build {
+    grid-template-columns: 1fr repeat(4, 1fr) 1fr;
+  }
+}
+@media only screen and (max-width:500px) {
+  .calculator-build {
+    grid-template-columns: 0.1fr repeat(4, 1fr) 0.1fr;
+  }
 }

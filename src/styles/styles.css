@@ -170,12 +170,15 @@ form {
   margin-right: 6%;
 }
 
-.theme h3 {
+.theme h2 {
   font-size: 0.7rem;
   letter-spacing: 1px;
   line-height: 1.5rem;
   padding-right: 5px;
   color: var(--header-screen-text);
+}
+label{
+  display: none;
 }
 
 .switch {

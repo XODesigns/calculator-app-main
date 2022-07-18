@@ -75,11 +75,16 @@
   --hover-equals: hsl(176, 81%, 75%);
 }
 
+.container{
+  display: grid;
+  grid-template-columns: 1fr ;
+}
+
 .calculator-build {
   display: grid;
   grid-template-columns: 6fr repeat(4, 1fr) 6fr;
   grid-template-rows: 15% 1fr 1fr 2fr repeat(6, 1.5fr) 15%;
-  grid-column: 1/7;
+  grid-column: 1/-1;
   background-color: var(--primary-background);
   width: 100%;
   height: 100vh;

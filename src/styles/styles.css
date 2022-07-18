@@ -318,6 +318,7 @@ input[type="button"]:hover {
     grid-template-columns: 1fr repeat(4, 1fr) 1fr;
   }
      .calculator {
+      grid-column: 1/7;
        display: grid;
       grid-template-columns: 1fr repeat(4, 1fr) 1fr;
      }
@@ -326,15 +327,16 @@ input[type="button"]:hover {
        grid-column: 1/7;
      }
 }
-/* @media only screen and (max-width:500px) {
+@media only screen and (max-width:500px) {
   .calculator-build {
     grid-template-columns: 5% repeat(4, 1fr) 5%;
   }
   .calculator{
+    grid-column: 1/7;
     display: grid;
     grid-template-columns: 5% repeat(4, 1fr) 5%;
   }
   form{
-    grid-column:2/6;
+    grid-column:1/7;
   }
-} */
+}

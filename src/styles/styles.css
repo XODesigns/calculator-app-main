@@ -321,6 +321,6 @@ input[type="button"]:hover {
 }
 @media only screen and (max-width:500px) {
   .calculator-build {
-    grid-template-columns: 0.1fr repeat(4, 1fr) 0.1fr;
+    grid-template-columns: 5% repeat(4, 1fr) 5%;
   }
 }

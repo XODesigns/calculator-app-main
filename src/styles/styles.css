@@ -317,11 +317,24 @@ input[type="button"]:hover {
   .calculator-build {
     grid-template-columns: 0fr repeat(4, 1fr) 0fr;
   }
+  .header{
+    padding:0 2%;
+  }
+
+  .calculator{
+    padding: 10% 2%;
+  }
 
 }
 @media only screen and (max-width:500px) {
   .calculator-build {
     grid-template-columns: 0fr repeat(4, 1fr) 0fr;
   }
+.header {
+  padding: 0 2%;
+}
+    .calculator {
+      padding: 10% 2%;
+    }
 
 }

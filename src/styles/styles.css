@@ -316,11 +316,25 @@ input[type="button"]:hover {
 @media only screen and (max-width:600px) {
   .calculator-build {
     grid-template-columns: 1fr repeat(4, 1fr) 1fr;
-    
   }
+     .calculator {
+       display: grid;
+      grid-template-columns: 1fr repeat(4, 1fr) 1fr;
+     }
+  
+     form {
+       grid-column: 2/6;
+     }
 }
 @media only screen and (max-width:500px) {
   .calculator-build {
     grid-template-columns: 5% repeat(4, 1fr) 5%;
+  }
+  .calculator{
+    display: grid;
+    grid-template-columns: 5% repeat(4, 1fr) 5%;
+  }
+  form{
+    grid-column:2/6;
   }
 }

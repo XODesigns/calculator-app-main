@@ -321,25 +321,27 @@ input[type="button"]:hover {
 @media only screen and (max-width:600px) {
   .calculator-build {
     grid-template-columns: 0fr repeat(4, 1fr) 0fr;
+      height: 100vh;
   }
   .header{
     padding:0 2%;
   }
 
   .calculator{
-    padding: 10% 2%;
+    padding: 2%;
   }
 
 }
 @media only screen and (max-width:500px) {
   .calculator-build {
     grid-template-columns: 0fr repeat(4, 1fr) 0fr;
+      height: 100vh;
   }
 .header {
   padding: 0 2%;
 }
     .calculator {
-      padding: 10% 2%;
+      padding: 2%;
     }
 
 }

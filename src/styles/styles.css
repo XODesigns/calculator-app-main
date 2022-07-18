@@ -315,13 +315,13 @@ input[type="button"]:hover {
 }
 @media only screen and (max-width:600px) {
   .calculator-build {
-    grid-template-columns: 1fr repeat(4, 1fr) 1fr;
+    grid-template-columns: 0fr repeat(4, 1fr) 0fr;
   }
 
 }
 @media only screen and (max-width:500px) {
   .calculator-build {
-    grid-template-columns: 0.1fr repeat(4, 1fr) 0.1fr;
+    grid-template-columns: 0fr repeat(4, 1fr) 0fr;
   }
 
 }

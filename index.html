@@ -22,59 +22,66 @@
     <title>Frontend Mentor | Calculator app</title>
   </head>
   <body>
-    <main class="container">
-      <div id="themes" class="calculator-build">
-        <div class="calc">
-          <div class="header">
-            <h1>calc</h1>
-            <div class="theme">
-              <h2>THEME</h2>
+    <!-- <main class="container"> -->
+    <main id="themes" class="calculator-build">
+      <div class="calc">
+        <div class="header">
+          <h1>calc</h1>
+          <div class="theme">
+            <h2>THEME</h2>
 
-              <div class="switch" id="toggle">
-                <label>none</label>
-                <input type="range" name="toggle" data-circle min="0" max="2" value="0"/>
-              </div>
+            <div class="switch" id="toggle">
+              <label>none</label>
+              <input
+                type="range"
+                name="toggle"
+                data-circle
+                min="0"
+                max="2"
+                value="0"
+              />
             </div>
-
-            <ul>
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-            </ul>
           </div>
-          <div class="calculator">
-            <form>
-              <div class="screen" id="screen">
-                <div class="previous-operand" data-previous-operand></div>
-                <div class="current-operand" data-current-operand>0</div>
-              </div>
 
-              <div class="buttons">
-                <input type="button" data-number value="7" />
-                <input type="button" data-number value="8" />
-                <input type="button" data-number value="9" />
-                <input type="button" data-delete class="delete" value="DEL" />
-                <input type="button" data-number value="4" />
-                <input type="button" data-number value="5" />
-                <input type="button" data-number value="6" />
-                <input type="button" data-evaluation value="+" />
-                <input type="button" data-number value="1" />
-                <input type="button" data-number value="2" />
-                <input type="button" data-number value="3" />
-                <input type="button" data-evaluation value="-" />
-                <input type="button" data-number value="." />
-                <input type="button" data-number value="0" />
-                <input type="button" data-evaluation value="/" />
-                <input type="button" data-evaluation value="x" />
-
-                <input type="button" class="reset" data-reset value="RESET" />
-                <input type="button" class="equals" data-equals value="=" />
-              </div>
-            </form>
-          </div>
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
         </div>
+        <!-- <div class="calculator"> -->
+        <form>
+          <div class="screen" id="screen">
+            <div class="previous-operand" data-previous-operand></div>
+            <div class="current-operand" data-current-operand>0</div>
+          </div>
+
+          <div class="buttons">
+            <input type="button" data-number value="7" />
+            <input type="button" data-number value="8" />
+            <input type="button" data-number value="9" />
+            <input type="button" data-delete class="delete" value="DEL" />
+            <input type="button" data-number value="4" />
+            <input type="button" data-number value="5" />
+            <input type="button" data-number value="6" />
+            <input type="button" data-evaluation value="+" />
+            <input type="button" data-number value="1" />
+            <input type="button" data-number value="2" />
+            <input type="button" data-number value="3" />
+            <input type="button" data-evaluation value="-" />
+            <input type="button" data-number value="." />
+            <input type="button" data-number value="0" />
+            <input type="button" data-evaluation value="/" />
+            <input type="button" data-evaluation value="x" />
+
+            <input type="button" class="reset" data-reset value="RESET" />
+            <input type="button" class="equals" data-equals value="=" />
+          </div>
+        </form>
+        <!-- </div> -->
       </div>
     </main>
+    <!-- </main> -->
 
     <script src="./src/scripts/script.js"></script>
   </body>

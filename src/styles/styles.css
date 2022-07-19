@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  padding: 0;
   font-family: "League Spartan", sans-serif;
 }
 
@@ -75,24 +76,23 @@
   --hover-equals: hsl(176, 81%, 75%);
 }
 
-.container{
-  display: grid;
-  grid-template-columns: 1fr ;
-}
+
 
 .calculator-build {
-  display: grid;
-  grid-template-columns: 6fr repeat(4, 1fr) 6fr;
-  grid-template-rows: 15% 1fr 1fr 2fr repeat(6, 1.5fr) 15%;
-  grid-column: 1/-1;
+  display: flex;
+  /* grid-template-columns: 6fr repeat(4, 1fr) 6fr;
+  grid-template-rows: 15% 1fr 1fr 2fr repeat(6, 1.5fr) 15%; */
+  justify-content:center;
+  align-items: center;
   background-color: var(--primary-background);
-  width: 100%;
   height: 100vh;
 }
 
 .calc {
-  grid-column: 2/6;
-  grid-row: 2/11;
+  width:400px;
+  padding:0 2%;
+  /* grid-column: 2/6;
+  grid-row: 2/11; */
 }
 
 .header {
@@ -308,7 +308,7 @@ input[type="button"]:hover {
 }
 
 
-@media only screen and (max-width:1200px){
+/* @media only screen and (max-width:1200px){
   .calculator-build {
       grid-template-columns: 4fr repeat(4, 1fr) 4fr;
     }
@@ -344,4 +344,4 @@ input[type="button"]:hover {
       padding: 2%;
     }
 
-}
+} */

@@ -17,7 +17,7 @@ form.addEventListener("click", (evt) => {
 //Changing of themes every toggle click
 theme.classList.add("theme-one");
 toggles.addEventListener("click", handler, false);
-toggles.addEventListener("touchstart", handler, false);
+toggles.addEventListener("touchend", handler, false);
 // toggles.addEventListener("click", (evt) => {
 //   // if (evt.target.value === "1") {
 //   //   theme.classList.remove("theme-one");

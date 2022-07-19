@@ -16,8 +16,8 @@ form.addEventListener("click", (evt) => {
 
 //Changing of themes every toggle click
 theme.classList.add("theme-one");
-toggles.addEventListener('click', handler, false)
-toggles.addEventListener('touchmove', handler, false)
+toggles.addEventListener("click", handler, false);
+toggles.addEventListener("touchstart", handler, false);
 // toggles.addEventListener("click", (evt) => {
 //   // if (evt.target.value === "1") {
 //   //   theme.classList.remove("theme-one");
@@ -34,8 +34,8 @@ toggles.addEventListener('touchmove', handler, false)
 //   // }
 // });
 
-function handler(evt){
-   if (evt.target.value === "1") {
+function handler(evt) {
+  if (evt.target.value === "1") {
     theme.classList.remove("theme-one");
     theme.classList.add("theme-two");
     theme.classList.remove("theme-three");
